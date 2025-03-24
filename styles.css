@@ -3,3 +3,22 @@
   align-items: center;
   flex-direction: column;
 }
+ #keyboard div span {
+    font-size: 25px;
+    display: inline-block;
+    border: 1px solid;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    margin: 2px;
+ }
+ #SHIFT {
+    width: 85px !important;
+ }
+ #SPACE {
+    width: 120px !important;
+ }
+ .pressed {
+    background-color: black;
+    color: white;
+ }
