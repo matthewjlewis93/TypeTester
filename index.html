@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Type Tester</title>
-</head>
-<body>
-  <header id="settings"></header>
-  <main>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-  </main>
-  <section>
-    <div id="score"></div>
-    <div id="keyboard">
-      <div><span>Q</span><span>W</span><span>E</span><span>R</span><span>T</span><span>Y</span><span>U</span><span>I</span><span>O</span><span>P</span></div>
-      <div><span>A</span><span>S</span><span>D</span><span>F</span><span>G</span><span>H</span><span>J</span><span>K</span><span>L</span></div>
-      <div><span>Z</span><span>X</span><span>C</span><span>V</span><span>B</span><span>N</span><span>M</span><span>,</span><span>.</span></div>
-      
-    </div>
-  </section>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Type Tester</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header id="settings"><label>Check Punctuation<input type="checkbox"/></label><label>Check Capitalization<input type="checkbox"/></label><label>Something Else<input type="checkbox"/></label></header>
+    <main>
+      <p style="font-size: 80px; height: 100px; overflow: hidden; text-wrap-mode: nowrap;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum
+      </p>
+    </main>
+    <section>
+      <div id="score"></div>
+      <div id="keyboard">
+        <div>
+          <span>Q</span><span>W</span><span>E</span><span>R</span><span>T</span
+          ><span>Y</span><span>U</span><span>I</span><span>O</span
+          ><span>P</span>
+        </div>
+        <div>
+          <span>A</span><span>S</span><span>D</span><span>F</span><span>G</span
+          ><span>H</span><span>J</span><span>K</span><span>L</span>
+        </div>
+        <div>
+          <span>Z</span><span>X</span><span>C</span><span>V</span><span>B</span
+          ><span>N</span><span>M</span><span>,</span><span>.</span>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="index.js"></script>
 </html>
