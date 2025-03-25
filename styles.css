@@ -1,24 +1,58 @@
 #keyboard {
+  width: 650px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
- #keyboard div span {
-    font-size: 25px;
-    display: inline-block;
-    border: 1px solid;
-    width: 35px;
-    height: 35px;
-    text-align: center;
-    margin: 2px;
- }
- #SHIFT {
-    width: 85px !important;
- }
- #SPACE {
-    width: 120px !important;
- }
- .pressed {
-    background-color: black;
-    color: white;
- }
+#keyboard div span {
+  font-size: 25px;
+  display: inline-block;
+  border: 1px solid;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  /* margin: 2px; */
+}
+#keyboard div {
+  gap: 8px;
+  margin: 2px 0px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#SPACE {
+  width: 150px !important;
+}
+#TAB,
+#caps-lock,
+#enter,
+#SHIFT {
+  flex-grow: 1;
+}
+.pressed {
+  background-color: black;
+  color: white;
+}
+
+#testing-body {
+  font-size: 80px;
+  height: 100px;
+  overflow: hidden;
+  text-wrap-mode: nowrap;
+}
+
+#testing-body .correct {
+  color: green;
+}
+
+#testing-body .incorrect {
+  color: red;
+}
+
+#testing-body .current {
+  color: blue;
+  text-decoration: underline;
+  font-weight: bold;
+}
