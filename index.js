@@ -1,8 +1,40 @@
 import books from "/books.js";
+
 let currentIndex = 0;
 let totalWords = 0;
+let testState = "start";
 let testBody = document.getElementById("testing-body");
-startTest();
+
+document.addEventListener("keydown", keydownEventHandler);
+
+resetTest()
+
+document.addEventListener("keyup", (e) => {
+  let pressedKey = keyProcessor(e);
+  setTimeout(
+    () => document.getElementById(pressedKey).classList.remove("pressed"),
+    100
+  );
+});
+
+function keydownEventHandler(keypressEvent) {
+  let pressedKey = keyProcessor(keypressEvent);
+  switch (testState) {
+    case "start":
+      document.getElementById(pressedKey).classList.add("pressed");
+      keypressEvent.key !== "Shift" && nextLetter(keypressEvent.key);
+      break;
+    case "end":
+      keypressEvent.key === "Enter" && resetTest();
+      break;
+    case "restart":
+      document.getElementById(pressedKey).classList.add("pressed");
+      keypressEvent.key !== "Shift" && nextLetter(keypressEvent.key) && startTest();
+      break;
+  }
+}
+
+document.addEventListener("keydown", startTest);
 
 function nextLetter(key) {
   if (testBody.innerText[currentIndex] === " ") {
@@ -13,7 +45,7 @@ function nextLetter(key) {
     testBody.innerHTML = [...testBody.innerText]
       .toSpliced(0, 1, `<span class='current'>${testBody.innerText[0]}</span>`)
       .join("");
-    return;
+    return true;
   }
 
   if (currentIndex === 0) {
@@ -43,28 +75,26 @@ function nextLetter(key) {
   currentIndex += 1;
 }
 function startTest() {
-  let currentBook = books[Math.floor(Math.random() * 6)];
+  testState = "start";
+  document.getElementById("timer").classList.add("active");
+  setTimeout(() => {
+    endTest();
+  }, 1000 * 60);
+}
+
+function resetTest() {
+  testState = "restart";
+  let currentBook = books[Math.floor(Math.random() * 10) + 1];
   testBody.innerHTML = [...currentBook]
     .toSpliced(0, 1, `<span class='current'>${currentBook[0]}</span>`)
     .join("");
-
-  document.addEventListener("keydown", (e) => {
-    let pressedKey = keyProcessor(e);
-    document.getElementById(pressedKey).classList.add("pressed");
-    e.key !== "Shift" && nextLetter(e.key);
-  });
-
-  document.addEventListener("keyup", (e) => {
-    let pressedKey = keyProcessor(e);
-    setTimeout(
-      () => document.getElementById(pressedKey).classList.remove("pressed"),
-      100
-    );
-  });
+  document.getElementById("timer").classList.remove("active");
 }
 
 function endTest() {
-  document.removeEventListener;
+  testState = "end";
+  document.getElementById("score").innerText =
+    "Final WPM: " + totalWords + " \nPress enter to restart";
 }
 
 function keyProcessor(event) {

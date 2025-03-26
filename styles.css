@@ -1,20 +1,20 @@
 body {
-    margin: 0;
+  margin: 0;
 }
 main {
-    padding: 5px;
+  padding: 5px;
 }
 
 #timer {
-    height: 10px;
-    width: 100vw;
-    background-color: aquamarine;
+  height: 20px;
+  width: 100vw;
+  background-color: aquamarine;
 }
 #timer.active {
-    transition-property: width;
-    transition-duration: 60s;
-    transition-timing-function: linear;
-    width: 0vw;
+  transition-property: width;
+  transition-duration: 60s;
+  transition-timing-function: linear;
+  width: 0vw;
 }
 
 #keyboard {
@@ -58,7 +58,7 @@ main {
 }
 
 #testing-body {
-    margin: 10px;
+  margin: 10px;
   font-size: 80px;
   height: 100px;
   overflow: hidden;
@@ -80,8 +80,8 @@ main {
 }
 
 #score {
-    font-size: 30px;
-    height: 20px;
-    margin: 25px 0px;
-    text-align: center;
+  font-size: 30px;
+  height: 40px;
+  margin: 25px 0px;
+  text-align: center;
 }
