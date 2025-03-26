@@ -1,9 +1,29 @@
+body {
+    margin: 0;
+}
+main {
+    padding: 5px;
+}
+
+#timer {
+    height: 10px;
+    width: 100vw;
+    background-color: aquamarine;
+}
+#timer.active {
+    transition-property: width;
+    transition-duration: 60s;
+    transition-timing-function: linear;
+    width: 0vw;
+}
+
 #keyboard {
   width: 650px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   flex-direction: column;
+  font-family: sans-serif;
 }
 #keyboard div span {
   font-size: 25px;
@@ -25,10 +45,11 @@
 #SPACE {
   width: 150px !important;
 }
-#TAB,
+#tab,
 #caps-lock,
-#enter,
-#SHIFT {
+#Enter,
+#ShiftLeft,
+#ShiftRight {
   flex-grow: 1;
 }
 .pressed {
@@ -37,6 +58,7 @@
 }
 
 #testing-body {
+    margin: 10px;
   font-size: 80px;
   height: 100px;
   overflow: hidden;
@@ -55,4 +77,11 @@
   color: blue;
   text-decoration: underline;
   font-weight: bold;
+}
+
+#score {
+    font-size: 30px;
+    height: 20px;
+    margin: 25px 0px;
+    text-align: center;
 }
