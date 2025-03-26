@@ -5,7 +5,7 @@ let totalWords = 0;
 let testState = "start";
 let testBody = document.getElementById("testing-body");
 
-document.addEventListener("keydown", keydownEventHandler);
+document.addEventListener("keydown",(event) => keydownEventHandler(event));
 
 resetTest()
 
@@ -19,6 +19,7 @@ document.addEventListener("keyup", (e) => {
 
 function keydownEventHandler(keypressEvent) {
   let pressedKey = keyProcessor(keypressEvent);
+  console.log(testState)
   switch (testState) {
     case "start":
       document.getElementById(pressedKey).classList.add("pressed");
@@ -27,14 +28,12 @@ function keydownEventHandler(keypressEvent) {
     case "end":
       keypressEvent.key === "Enter" && resetTest();
       break;
-    case "restart":
+    case "reset":
       document.getElementById(pressedKey).classList.add("pressed");
       keypressEvent.key !== "Shift" && nextLetter(keypressEvent.key) && startTest();
       break;
   }
 }
-
-document.addEventListener("keydown", startTest);
 
 function nextLetter(key) {
   if (testBody.innerText[currentIndex] === " ") {
@@ -45,7 +44,7 @@ function nextLetter(key) {
     testBody.innerHTML = [...testBody.innerText]
       .toSpliced(0, 1, `<span class='current'>${testBody.innerText[0]}</span>`)
       .join("");
-    return true;
+    return;
   }
 
   if (currentIndex === 0) {
@@ -73,6 +72,7 @@ function nextLetter(key) {
     );
   }
   currentIndex += 1;
+  return true;
 }
 function startTest() {
   testState = "start";
@@ -83,7 +83,9 @@ function startTest() {
 }
 
 function resetTest() {
-  testState = "restart";
+  testState = "reset";
+  totalWords = 0;
+  document.getElementById('score').innerText = 0;
   let currentBook = books[Math.floor(Math.random() * 10) + 1];
   testBody.innerHTML = [...currentBook]
     .toSpliced(0, 1, `<span class='current'>${currentBook[0]}</span>`)
